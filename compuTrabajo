@@ -1,0 +1,48 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+      int n = 8;
+      int contadorRojo=0;
+      int contadorAzul=0;
+
+      //CREAMOS UNA MATRIZ DE NXN
+        string[,] tableroAjedrez = new string[n, n];
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                // Alternar colores en filas y columnas
+                if ((i + j) % 2 == 0)
+              {
+                    
+                tableroAjedrez[i, j] = "[(ROJO)]\t";
+                    contadorRojo++;
+                }
+                else
+                 {
+                   tableroAjedrez[i, j] = "Azul\t";
+                   contadorAzul++;
+                }
+
+              //SE PUEDE USAR <<Console.Write(tableroAjedrez[i, j] + "\t")>> PARA DIBUJAR LA MATRIZ EN LA CONSOLA. POR DEFECTO ESTA DESACTIVADA PARA NO SATURAR LA MEMORIA EN CASO DE INTRUDUCIR MATRICES GRANDES;
+              
+               // Console.Write(tableroAjedrez[i, j] + "\t");
+              
+            }
+          Console.WriteLine();
+        }
+       
+      Console.WriteLine($"\n\n\nEl total de piezas rojas es: {contadorRojo}\nEl total de piezas azules es: {contadorAzul}\nTotal de espacios {contadorAzul+contadorRojo}.");
+      if (contadorRojo==contadorAzul)
+      
+        Console.WriteLine($"\nEN UNA MATRIZ DE {n}x{n} NO SE PUEDE OBTENER DOS FILAS Y DOS COLUMNAS CON DIFERENTES ESPACIOS PINTADOS DE ROJO.");
+      
+      else
+      
+        Console.WriteLine($"\nEN UNA MATRIZ DE {n}x{n} SI SE PUEDE OBTENER DOS FILAS Y DOS COLUMNAS CON DIFERENTES ESPACIOS PINTADOS DE ROJO.");
+      
+      
+    }
+}
